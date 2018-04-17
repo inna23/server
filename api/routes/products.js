@@ -4,13 +4,13 @@ const router = express.Router();
 //Products
 router.get('/', (req, res, next) => {
   res.status(200).json({
-    message: 'Get request for products!'
+    message: 'Get request for products!!!!!!!!'
   })
 });
 
 router.post('/', (req, res, next) => {
   res.status(200).json({
-    message: 'Get request for products!'
+    message: 'Get request for products! '
   })
 });
 //
