@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
-const productRouts = require('./api/routes/products');
-const calculatorRouts = require('./api/routes/calculator');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const productRouts = require('./api/routes/products');
+const calculatorRouts = require('./api/routes/calculator');
+
+mongoose.connect("mongodb+srv://node-rest:nodeRest@node-rest-app-hxzrm.mongodb.net/test");
 
 // ===== LOGGER =====
 app.use(morgan('dev'));
