@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const productRouts = require('./api/routes/products');
 const taskRouts = require('./api/routes/task');
+const homepageRoutes = require('./api/routes/homepage');
 
 mongoose.connect('mongodb+srv://node-rest:' + process.env.MONGO_ATLAS_PW + '@node-rest-app-hxzrm.mongodb.net/test');
 
@@ -31,6 +32,7 @@ app.use((req, res, next) => { // eslint-disable-line consistent-return
 
 // Routs which should handle request
 app.use('/products', productRouts);
+app.use('/', homepageRoutes);
 app.use('/tasks', taskRouts);
 
 app.use((req, res, next) => {
@@ -47,5 +49,6 @@ app.use((error, req, res, next) => {
     }
   });
 });
+
 
 module.exports = app;
