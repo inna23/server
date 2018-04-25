@@ -4,9 +4,9 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const productRouts = require('./api/routes/products');
-const calculatorRouts = require('./api/routes/calculator');
+const taskRouts = require('./api/routes/task');
 
-mongoose.connect("mongodb+srv://node-rest:nodeRest@node-rest-app-hxzrm.mongodb.net/test");
+mongoose.connect('mongodb+srv://node-rest:' + process.env.MONGO_ATLAS_PW + '@node-rest-app-hxzrm.mongodb.net/test');
 
 // ===== LOGGER =====
 app.use(morgan('dev'));
@@ -31,7 +31,8 @@ app.use((req, res, next) => { // eslint-disable-line consistent-return
 
 // Routs which should handle request
 app.use('/products', productRouts);
-app.use('/calculator', calculatorRouts);
+app.use('/tasks', taskRouts);
+
 app.use((req, res, next) => {
  const error = new Error('Not found');
  error.status = 404;

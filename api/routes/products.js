@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
     .exec()
     .then(doc => {
       console.log(doc);
-      res.status(201).json(doc);
+      res.status(200).json(doc);
     })
     .catch(err => {
         res.status(500).json({
